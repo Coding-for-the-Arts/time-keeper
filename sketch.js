@@ -6,18 +6,40 @@ let a = 0 // «Winkel» zur Errechnung von Sinus/Cosinus
 
 function setup() {
   createCanvas(400, 400)
-
+  noFill()
 }
 
 function draw() {
-  let factor = sin(a)
-
   background(220)
 
-  /* Ein Kreis von links nach rechts */
-  let diameter = 10
-  let circleX = map(factor, -1, 1, 0, width-diameter)
-  ellipse(circleX, 100, diameter)
+  /* der Motor */
+  let factor = sin(a)
+
+  /* Ein Rechteck verschieben */
+  let diameter = 20
+  let minPos = 0
+  let maxPos = width - diameter
+  let rectX = map(factor, -1, 1, minPos, maxPos)
+  rect(rectX, 50, diameter)
+
+  /* Einen Kreis skalieren */
+  let minDia = 10
+  let maxDia = 50
+  let scaledDia = map(factor, -1, 1, minDia, maxDia)
+  ellipse(300, 180, scaledDia)
+
+  /* Eine Linie schlängeln */
+  let minY = 300
+  let maxY = 380
+  for (let i = 10; i < width; i+= 10) {
+    // hier möchten wir für jeden Punkt einen leicht verschobenen
+    // Winkel, mit dem wir die Sinus-Funktion aufrufen können.
+    let offset = i/50
+    let offsetFactor = sin(a + offset)
+    let x = i
+    let y = map(offsetFactor, -1, 1, minY, maxY)
+    ellipse(x, y, 3)
+  }
 
   // Den «Winkel» erhöhen
   const increment = TAU/360
