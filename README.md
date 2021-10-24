@@ -1,4 +1,4 @@
-# Time Keeper
+# Visuelle Uhr
 
 - Schreibe ein Programm, das den Verlauf der Zeit visualisiert: eine Uhr.
 - Die Darstellung von Ziffern ist verboten.
