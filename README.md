@@ -1,4 +1,4 @@
-# Visuelle Uhr
+# Zeitverlauf visualisieren
 
 - Schreibe ein Programm, das den Verlauf der Zeit visualisiert: eine Uhr.
 - Die Darstellung von Ziffern ist verboten.
